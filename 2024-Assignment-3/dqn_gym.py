@@ -161,7 +161,7 @@ def plot_R100(episodeList, r100List, show_result=False):
         #plt.title(f'Result - Version: {params["cartVersion"]}, Network: {args.network}')
         #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"      # to save default
 
-        plt.title(f'Result - Version: {params["cartVersion"]}, Network: {params['learning_rate']}')
+        plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
         plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png" # to save with learning rate 
 
         plt.savefig(plot_save_path)
@@ -169,7 +169,7 @@ def plot_R100(episodeList, r100List, show_result=False):
     else:
         plt.clf()
         #plt.title(f'Training - Version: {params["cartVersion"]}, Network: {args.network}')
-        plt.title(f'Result - Version: {params["cartVersion"]}, Network: {params['learning_rate']}')
+        plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
     
     plt.xlabel('Episode')
     plt.ylabel('R100')
