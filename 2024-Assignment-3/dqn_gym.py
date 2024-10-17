@@ -159,7 +159,9 @@ def plot_R100(episodeList, r100List, show_result=False):
     rewards_t = torch.tensor(r100List, dtype=torch.float)   
     if show_result:
         plt.title(f'Result - Version: {params["cartVersion"]}, Network: {args.network}')
-        plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"
+        #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"      # to save default
+        plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png" # to save with learning rate 
+
         plt.savefig(plot_save_path)
         print(f"Plot saved to {plot_save_path}")
     else:

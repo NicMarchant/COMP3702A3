@@ -11,7 +11,9 @@ CartPole-v0:
   epsilon_final: 0.01
   epsilon_start: 1.0
 
+  #learning_rate: 1.0e-2
   learning_rate: 1.0e-3
+  #learning_rate: 1.0e-4
 
 
   stopping_reward: 195
