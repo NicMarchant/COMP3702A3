@@ -158,15 +158,18 @@ def plot_R100(episodeList, r100List, show_result=False):
     episodes_t = torch.tensor(episodeList, dtype=torch.float)
     rewards_t = torch.tensor(r100List, dtype=torch.float)   
     if show_result:
-        plt.title(f'Result - Version: {params["cartVersion"]}, Network: {args.network}')
+        #plt.title(f'Result - Version: {params["cartVersion"]}, Network: {args.network}')
         #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"      # to save default
+
+        plt.title(f'Result - Version: {params["cartVersion"]}, Network: {params['learning_rate']}')
         plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png" # to save with learning rate 
 
         plt.savefig(plot_save_path)
         print(f"Plot saved to {plot_save_path}")
     else:
         plt.clf()
-        plt.title(f'Training - Version: {params["cartVersion"]}, Network: {args.network}')
+        #plt.title(f'Training - Version: {params["cartVersion"]}, Network: {args.network}')
+        plt.title(f'Result - Version: {params["cartVersion"]}, Network: {params['learning_rate']}')
     
     plt.xlabel('Episode')
     plt.ylabel('R100')
@@ -289,5 +292,6 @@ while True:
         break
 
 plot_R100(episodeList, r100List, show_result=True)
-plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"
+#plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"
+plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png"
 plt.savefig(plot_save_path)
