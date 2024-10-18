@@ -108,6 +108,7 @@ def calculate_loss(net, target_net):
     # in CartPole there are 2 actions so this will be tensor of (2, BatchSize)
     Q_s = net.forward(states_v)
 
+
     # now we need the state_action_values for the actions that were selected (i.e. the action from the tuple)
     # actions tensor is already {100, 1}, i.e. unsqeezed so we don't need to unsqueeze it again
     # because the Q_s has one row per sample and the actions will be use as indices to choose the value from each row
