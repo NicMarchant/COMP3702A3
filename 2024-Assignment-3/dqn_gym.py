@@ -161,15 +161,19 @@ def plot_R100(episodeList, r100List, show_result=False):
         #plt.title(f'Result - Version: {params["cartVersion"]}, Network: {args.network}')
         #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"      # to save default
 
-        plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
-        plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png" # to save with learning rate 
+        #plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
+        #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png" # to save with learning rate 
+
+        plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
+        plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png" # Q3 part D1
 
         plt.savefig(plot_save_path)
         print(f"Plot saved to {plot_save_path}")
     else:
         plt.clf()
         #plt.title(f'Training - Version: {params["cartVersion"]}, Network: {args.network}')
-        plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
+        #plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
+        plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
     
     plt.xlabel('Episode')
     plt.ylabel('R100')
@@ -271,7 +275,6 @@ while True:
     loss = calculate_loss(net, target_net)
     losses.append(loss.item())
 
-
     if params['alpha_sync']:
         alpha_sync(net, target_net, alpha=1 - params['tau'])
     elif frame_idx % params['target_net_sync'] == 0:
@@ -293,5 +296,7 @@ while True:
 
 plot_R100(episodeList, r100List, show_result=True)
 #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"
-plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png"
+#plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png"
+plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
+plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png" # Q3 part D1
 plt.savefig(plot_save_path)

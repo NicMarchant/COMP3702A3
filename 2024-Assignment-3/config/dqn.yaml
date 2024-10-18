@@ -11,13 +11,13 @@ CartPole-v0:
   epsilon_final: 0.01
   epsilon_start: 1.0
 
-  # epsilon_decay: 2500
+  # epsilon_decay: 2500 #didnt use these 
   # epsilon_final: 0.1
   # epsilon_start: 0.9
 
-  #learning_rate: 1.0e-2
+  #learning_rate: 1.0e-2 # larger learning rate
   learning_rate: 1.0e-3
-  #learning_rate: 1.0e-4
+  #learning_rate: 1.0e-4 # smaller learning rate
 
 
   stopping_reward: 195
@@ -28,6 +28,10 @@ CartPole-v0:
   target_net_sync: 1.0e+3
   tau: 0.005
   alpha_sync: false
+
+  #target_net_sync: 1.0e+3  # for q3 part A
+  #tau: 0.005
+  #alpha_sync: true
 
   clip_gradient: false
   max_episode_steps: 200
