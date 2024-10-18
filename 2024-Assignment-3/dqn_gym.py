@@ -35,6 +35,7 @@ args = parser.parse_args()
 hypers = yaml.load(open(args.config_file), Loader=yaml.FullLoader)
 
 if args.env not in hypers:
+    print(args.env)
     raise Exception(f'Hyper-parameters not found for env {args.env} - please add it to the config file (config/dqn.yaml)')
 params = hypers[args.env]
 
@@ -164,8 +165,10 @@ def plot_R100(episodeList, r100List, show_result=False):
         #plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
         #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png" # to save with learning rate 
 
-        plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
-        plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png" # Q3 part D1
+        # plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
+        # plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png" # Q3 part D1
+        plt.title(f'Result - Version: lander-V3,')
+        plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png"
 
         plt.savefig(plot_save_path)
         print(f"Plot saved to {plot_save_path}")
@@ -173,7 +176,8 @@ def plot_R100(episodeList, r100List, show_result=False):
         plt.clf()
         #plt.title(f'Training - Version: {params["cartVersion"]}, Network: {args.network}')
         #plt.title(f'Result - Version: {params["cartVersion"]}, learning rate: {params['learning_rate']}')
-        plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
+        #plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
+        plt.title(f'Result - Version: lander-V3,')
     
     plt.xlabel('Episode')
     plt.ylabel('R100')
@@ -297,6 +301,8 @@ while True:
 plot_R100(episodeList, r100List, show_result=True)
 #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_network_{args.network}.png"
 #plot_save_path = f"plot_images/result_version_{params['cartVersion']}_LR_{params['learning_rate']}.png"
-plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
-plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png" # Q3 part D1
+# plt.title(f'Result - Version: {params["cartVersion"]}, periodic syncing of the target network')
+# plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png" # Q3 part D1
+plt.title(f'Result - Version: lander-V3,')
+plot_save_path = f"plot_images/result_version_{params['cartVersion']}periodic_syncing.png"
 plt.savefig(plot_save_path)
